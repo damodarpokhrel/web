@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Damodar Pokhrel - Personal Website</title>
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -55,12 +56,18 @@
                     <div class="blog-post">
                         <h3>मुस्ताङ्ग</h3>
                         <p>मार्फा</p>
-                        <img src="images\Mustang.jpg"> 
+                        <div class="photo-container">
+                            <img src="images\Mustang.jpg">
+                            <div class="photo-text">मुस्ताङ्ग</div>
+                        </div>
                     </div>
                     <div class="blog-post">
                         <h3>प्युठान</h3>
                         <p>स्वर्गद्वारी</p>
-                        <img src="images\swargadwari.jpg", img-align center:,>
+                        <div class="photo-container">
+                            <img src="images\swargadwari.jpg">
+                            <div class="photo-text">स्वर्गद्वारी</div>
+                        </div>
                     </div>
                     <!-- Add more blog posts as needed -->
                 </div>
@@ -131,7 +138,7 @@
 
     }
     #about {
-        background-color: #ffcccb; /* Light red */
+        background-color: #0ef34f; /* Light red */
     }
     #portfolio {
         background-color: #add8e6; /* Light blue */
@@ -149,5 +156,19 @@
         max-width: 100%;
         height: auto;
         border-radius: 8px;
+    }
+    .photo-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .photo-text {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 5px;
     }
 </style>
