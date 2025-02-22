@@ -63,7 +63,8 @@ button:hover {
 }
 .social-media a {
     font-size: 2em; /* Adjust the size as needed */
-    margin: 0 10px; /* Adjust the margin as needed */
+    margin: 0 10px;
+    text-decoration: none; /* Add this line to remove the underscore */
 }
 
 .portfolio-item {
