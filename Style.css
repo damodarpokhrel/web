@@ -65,3 +65,7 @@ button:hover {
     font-size: 2em; /* Adjust the size as needed */
     margin: 0 10px; /* Adjust the margin as needed */
 }
+
+.portfolio-item {
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
