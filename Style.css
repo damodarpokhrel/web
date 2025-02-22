@@ -61,3 +61,7 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.social-media a {
+    font-size: 2em; /* Adjust the size as needed */
+    margin: 0 10px; /* Adjust the margin as needed */
+}
