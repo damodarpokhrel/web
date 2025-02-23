@@ -1,0 +1,126 @@
+.section-content {
+    text-align: left;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about {
+    background-color: #0ef34f; /* Light red */
+    padding: 0px;
+    border-radius: 5%;
+    margin: 20px
+}
+
+#portfolio {
+    background-color: #add8e6; /* Light blue */
+}
+
+#Photos {
+    background-color: #90ee90; /* Light green */
+}
+
+#contact {
+    background-color: #4706fc; /* Light yellow */
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.photo-text {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.social-media a {
+    font-size: 2em; /* Adjust the size as needed */
+    margin: 0 10px;
+    text-decoration: none; /* Add this line to remove the underscore */
+}
+
+.portfolio-item {
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+#introduction {
+    padding: 20px, auto;
+    display: flex;
+    align-items: left;
+    margin: 20px auto;
+    max-width: 1800px;
+    height: 660px;
+}
+
+.intro-content {
+    margin: 20px auto;
+    display: flex;
+    background-color: #facc00;
+    border-radius: 8px;
+    color: #000000;
+    padding: 20px;
+    height: 600px;
+    width: 1800px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro-content img {
+    align-items: left;
+    max-width: 900px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.intro-text {
+    justify-content: left;
+    align-content: center;
+    font-size: 1.5em;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.intro-text h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.intro-text p {
+    margin: 5px 0 0;
+    font-size: 2em;
+}
+
+div {
+    
+    display: block;
+    unicode-bidi: isolate;
+}
+body {
+    background-color: #4706fc;
+    display: block;
+    margin: 8px;
+}
+header {
+    margin: 5px;
+    display: block;
+    unicode-bidi: isolate;
+}
