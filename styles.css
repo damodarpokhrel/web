@@ -1,3 +1,23 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4706fc;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-content {
+    text-align: center;
+    padding: 20px;
+}
+
 .section-content {
     text-align: left;
     background-color: #ffffff;
@@ -34,16 +54,13 @@ footer {
     box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
     display: block;
     unicode-bidi: isolate;
-    border-radius: 40%;
-    width: 98.5%;   
+    width: 100%;   
 }
 
 img {
     display: block;
     margin: 0 auto;
-    max-width: 76%;
-    height: 600px;
-    border-radius: 8px;
+    
 }
 
 .photo-container {
@@ -62,13 +79,20 @@ img {
 }
 
 .social-media a {
-    font-size: 2em; /* Adjust the size as needed */
+    font-size: 1.5em; /* Adjust the size as needed */
     margin: 0 10px;
     text-decoration: none; /* Add this line to remove the underscore */
+    color: #333;
 }
 
 .portfolio-item {
     margin-bottom: 20px; /* Adjust the value as needed */
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
 }
 
 #introduction {
@@ -88,25 +112,26 @@ img {
     color: #000000;
     padding: 20px;
     height: 600px;
-    width: 1800px;
+    width: 1100px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .intro-content img {
     align-items: left;
-    max-width: 900px;
+    max-width: 56%;
     height: auto;
     font-size: 2.5em;
-    border-radius: 8px;
+    border-radius: 50%;
     margin-right: 20px;
 }
 
 .intro-text {
     justify-content: left;
     align-content: center;
-    
     flex-wrap: wrap;
     width: 100%;
+    margin-left: 20px;
 }
 
 .intro-text h2 {
@@ -144,7 +169,6 @@ img {
 
 .intro-text p {
     margin: 5px 0 0;
-<<<<<<< Updated upstream
     font-size: 2.5em;
     display: block;
     margin-block-start: 1em;
@@ -152,23 +176,78 @@ img {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-=======
-    font-size: 1.5em;
->>>>>>> Stashed changes
+}
+
+.portfolio-items, .blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portfolio-item, .blog-post {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.photo-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-info {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.social-media {
+    text-align: center;
+    padding: 20px;
+}
+
+.location iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+    }
+
+    .intro-text {
+        margin-left: 0;
+    }
+
+    .portfolio-item, .blog-post, .contact-info {
+        flex: 1 1 100%;
+    }
 }
 
 div {
-    
     display: block;
     unicode-bidi: isolate;
 }
-body {
-    background-color: #4706fc;
-    display: block;
-    margin: 8px;
-}
+
 header {
     margin: 5px;
     display: block;
     unicode-bidi: isolate;
+    display: flex;
 }
