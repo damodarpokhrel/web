@@ -3,14 +3,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #4706fc;
+    background-color: #000000;
     display: block;
 }
 
 .container {
-    width: 100%;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+     
 }
 
 .header-content {
@@ -22,18 +26,17 @@ body {
     text-align: left;
     background-color: #ffffff;
     font-family: Arial, Helvetica, sans-serif, sans-serif;
-    border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 1100px;
+    max-width: 1200px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #about {
-    background-color: #0ef34f; /* Light red */
-    padding: 0px;
-    border-radius: 5%;
-    margin: 20px
+    background-color: #000000;
+    
+
+    
 }
 
 #portfolio {
@@ -79,10 +82,10 @@ img {
 }
 
 .social-media a {
-    font-size: 1.5em; /* Adjust the size as needed */
-    margin: 0 10px;
+    font-size: 2em; /* Adjust the size as needed */
+    margin: 0 30px;
     text-decoration: none; /* Add this line to remove the underscore */
-    color: #333;
+    color: #000000;
 }
 
 .portfolio-item {
@@ -188,7 +191,7 @@ img {
     display: inline-block;
     padding: 10px 20px;
     margin: 5px;
-    background-color: #007bff;
+    background-color: #330f01;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -200,7 +203,9 @@ img {
     background-color: #0056b3;
     align: center
 }
-
+a.btn {
+    border: dashed;
+}
 .portfolio-items, .blog-posts {
     display: flex;
     flex-wrap: wrap;
@@ -263,14 +268,41 @@ img {
     }
 }
 
-div {
-    display: block;
-    unicode-bidi: isolate;
-}
-
 header {
     margin: 5px;
     display: block;
     unicode-bidi: isolate;
     display: flex;
+    align-items: center;
+}
+p {
+    font-size: 1em;
+}
+section {
+    display: block;
+    unicode-bidi: isolate;
+
+}
+h1 {    
+    font-size: 4em;
+}
+.header-content {
+    text-align: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}
+i.fab.fa-facebook {
+    color: blue;
+}
+i.fab.fa-linkedin {
+    color: #0077B5;
+}
+i.fab.fa-instagram {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    border: none;
+    padding: 1px 2px;
+    font-size: 30px;
+    border-radius: 8px;
+    cursor: pointer;
 }
