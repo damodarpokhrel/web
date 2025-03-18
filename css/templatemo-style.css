@@ -152,7 +152,7 @@ footer {
     background-size: cover !important;
     width: 100%;
     height: 100%;
-    min-height: 75vh;
+    min-height: 100vh;
     position: absolute;
     top: 0;
     right: 0;
@@ -529,12 +529,12 @@ a:hover, a:active, a:focus {
 #contact .contact-form,
 #contact .contact-thumb {
   padding: 22px 32px 22px 32px;
-  min-height: 75vh;
+  min-height: 100vh;
 }
 
 #contact .contact-img {
   background: url('../images/contact-img.jpg') no-repeat;
-  min-height: 75vh;
+  min-height: 100vh;
 }
 
 #contact .contact-info {
@@ -729,14 +729,4 @@ i.fab.fa-instagram {
 
 .social-media a:hover {
   color: #007bff; /* Change color on hover */
-}
-.cv-buttons .btn {
-  display: inline-block;
-  padding: 10px 30px;
-  margin: 5px;
-  background-color: #ff0000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3sease;
 }

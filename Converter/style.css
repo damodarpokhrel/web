@@ -1,0 +1,211 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Add Nepali font support */
+@font-face {
+    font-family: 'Preeti';
+    src: url('https://fonts.gstatic.com/s/notosansdevanagari/v25/TuGOUUFzXI5FBtUq5a8bjKYTZjtRU6Zd3mz2.woff2') format('woff2');
+    unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.header-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.converters-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.converter {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.converter:first-child {
+    background-color: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+}
+
+.converter:last-child {
+    background-color: #f1f3f5;
+}
+
+.converter h2 {
+    color: #495057;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #6c5ce7;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.converter h2::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.converter:first-child h2::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2078/2078479.png');
+}
+
+.converter:last-child h2::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3898/3898082.png');
+}
+
+/* Nepali font styling */
+.converter:first-child label,
+.converter:first-child select {
+    font-family: 'Noto Sans Devanagari', 'Preeti', 'Arial Unicode MS', sans-serif;
+    font-size: 1.05rem;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    color: #495057;
+    font-weight: 600;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus, select:focus {
+    border-color: #6c5ce7;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    width: 100%;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#nepaliToEnglishResult, #englishToNepaliResult {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    font-weight: 500;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #495057;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .converters-container {
+        flex-direction: column;
+    }
+    
+    .converter:first-child {
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.converter {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.converter:last-child {
+    animation-delay: 0.2s;
+}
