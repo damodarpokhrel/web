@@ -730,3 +730,23 @@ i.fab.fa-instagram {
 .social-media a:hover {
   color: #007bff; /* Change color on hover */
 }
+<<<<<<< HEAD
+=======
+.cv-buttons .btn {
+  display: inline-block;
+  padding: 10px 30px;
+  margin: 5px;
+  background-color: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3sease;
+  outline: auto;
+  outline-style: dotted;
+  font-size: x-large;
+
+}
+a.btn {
+ 
+}
+>>>>>>> 0b84b2afe2d02897f59a9e33d5ab4d7c6705416e
