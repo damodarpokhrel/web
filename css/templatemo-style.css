@@ -730,23 +730,163 @@ i.fab.fa-instagram {
 .social-media a:hover {
   color: #007bff; /* Change color on hover */
 }
-<<<<<<< HEAD
-=======
-.cv-buttons .btn {
-  display: inline-block;
-  padding: 10px 30px;
-  margin: 5px;
-  background-color: #ff0000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3sease;
-  outline: auto;
-  outline-style: dotted;
-  font-size: x-large;
 
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-light: #ecf0f1;
+    --text-dark: #2c3e50;
+    --bg-light: #f8f9fa;
+    --bg-dark: #2c3e50;
+    --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    --gradient-accent: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
 }
-a.btn {
- 
+
+/* Cookie Consent Banner */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.95);
+    color: #fff;
+    padding: 1rem;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
->>>>>>> 0b84b2afe2d02897f59a9e33d5ab4d7c6705416e
+
+.cookie-consent.show {
+    display: block;
+    animation: slideUp 0.5s ease-out;
+}
+
+.cookie-consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cookie-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cookie-btn.accept {
+    background: #3498db;
+    color: white;
+}
+
+.cookie-btn.accept:hover {
+    background: #2980b9;
+}
+
+.cookie-btn.decline {
+    background: #e74c3c;
+    color: white;
+}
+
+.cookie-btn.decline:hover {
+    background: #c0392b;
+}
+
+.cookie-btn.manage {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.cookie-btn.manage:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Cookie Settings Modal */
+.cookie-settings {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    z-index: 10000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.cookie-settings.show {
+    display: block;
+}
+
+.cookie-settings h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-option {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.cookie-option label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.cookie-option p {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.modal-overlay.show {
+    display: block;
+}
