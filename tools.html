@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tools - Damodar Pokhrel</title>
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- FontAwesome -->
@@ -17,12 +18,12 @@
             padding: 100px 0 50px;
             background: #f8f9fa;
         }
-
+        
         .tools-header {
             text-align: center;
             margin-bottom: 50px;
         }
-
+        
         .tools-title {
             display: inline-block;
             background: linear-gradient(135deg, #6c5ce7, #a363d9);
@@ -39,7 +40,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .tools-title::before {
             content: '';
             position: absolute;
@@ -50,28 +51,28 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
-
+        
         .tools-title:hover::before {
             left: 100%;
         }
-
+        
         .tools-title:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(108, 92, 231, 0.4);
         }
-
+        
         .tools-header p {
             color: #7f8c8d;
             font-size: 18px;
             max-width: 700px;
             margin: 0 auto;
         }
-
         /* Enhanced Tool Card Styles */
+        
         .tool-card {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             padding: 0;
             margin-bottom: 30px;
             transition: all 0.4s ease;
@@ -80,14 +81,14 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
+        
         .tool-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-
+        
         .tool-image {
             width: 100%;
             height: 300px;
@@ -96,11 +97,11 @@
             border-top-right-radius: 20px;
             transition: all 0.4s ease;
         }
-
+        
         .tool-card:hover .tool-image {
             transform: scale(1.05);
         }
-
+        
         .tool-content-wrapper {
             padding: 30px;
             flex-grow: 1;
@@ -110,7 +111,7 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .tool-content-wrapper::before {
             content: '';
             position: absolute;
@@ -123,11 +124,11 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
+        
         .tool-card:hover .tool-content-wrapper::before {
             opacity: 1;
         }
-
+        
         .tool-title {
             font-size: 28px;
             color: #2c3e50;
@@ -135,11 +136,11 @@
             font-weight: 700;
             transition: all 0.3s ease;
         }
-
+        
         .tool-card:hover .tool-title {
             transform: translateX(5px);
         }
-
+        
         .tool-description {
             color: #7f8c8d;
             margin-bottom: 30px;
@@ -147,7 +148,7 @@
             line-height: 1.6;
             font-size: 18px;
         }
-
+        
         .tool-button {
             display: inline-block;
             padding: 15px 30px;
@@ -165,22 +166,36 @@
             overflow: hidden;
             z-index: 1;
         }
-
-        .tool-card:nth-child(1) .tool-button { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
-        .tool-card:nth-child(2) .tool-button { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
-        .tool-card:nth-child(3) .tool-button { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
-        .tool-card:nth-child(4) .tool-button { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); }
-        .tool-card:nth-child(5) .tool-button { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
-
+        
+        .tool-card:nth-child(1) .tool-button {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        
+        .tool-card:nth-child(2) .tool-button {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        }
+        
+        .tool-card:nth-child(3) .tool-button {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        
+        .tool-card:nth-child(4) .tool-button {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+        
+        .tool-card:nth-child(5) .tool-button {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+        
         .tool-content {
             display: none;
             margin-top: 30px;
         }
-
+        
         .tool-content.active {
             display: block;
         }
-
+        
         .back-to-tools {
             display: inline-block;
             margin-bottom: 20px;
@@ -188,81 +203,81 @@
             text-decoration: none;
             font-size: 16px;
         }
-
+        
         .back-to-tools i {
             margin-right: 5px;
         }
-
         /* Navbar styles */
+        
         .custom-navbar {
             background: rgba(44, 62, 80, 0.95);
             border-bottom: 0;
             padding: 20px 0;
         }
-
+        
         .custom-navbar .navbar-brand {
             color: #ffffff;
             font-weight: bold;
             font-size: 20px;
         }
-
+        
         .custom-navbar .nav li a {
             color: #ffffff;
             font-size: 15px;
             font-weight: 500;
             padding: 10px 20px;
         }
-
         /* Enhanced EMI Calculator Styles */
+        
         .loan-emi-calculator-container {
             background: linear-gradient(135deg, #6c5ce7, #a363d9);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             color: #fff;
         }
-
+        
         .calculator-header {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .calculator-header h2 {
             color: #fff;
             font-size: 28px;
             margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+        
         .calculator-header h2 i {
             margin-right: 10px;
             color: #ffd700;
         }
-
+        
         .calculator-form {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 15px;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             margin-bottom: 30px;
         }
-
+        
         .form-group {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
-
+        
         .form-group:hover {
             transform: translateY(-3px);
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 10px;
@@ -270,48 +285,48 @@
             color: #fff;
             font-size: 16px;
         }
-
+        
         .form-group label i {
             margin-right: 8px;
             color: #ffd700;
         }
-
+        
         .form-group input[type="number"] {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             color: #fff;
             font-size: 16px;
             transition: all 0.3s ease;
         }
-
+        
         .form-group input[type="number"]:focus {
             border-color: #ffd700;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             outline: none;
         }
-
+        
         .form-group input[type="number"]::placeholder {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
         }
-
+        
         .tenure-inputs {
             display: flex;
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
         }
-
+        
         .tenure-type {
             display: flex;
             gap: 15px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px 20px;
             border-radius: 8px;
         }
-
+        
         .tenure-radio {
             display: flex;
             align-items: center;
@@ -319,7 +334,7 @@
             cursor: pointer;
             color: #fff;
         }
-
+        
         .calculate-btn {
             width: 100%;
             padding: 15px;
@@ -334,31 +349,31 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
+        
         .calculate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
-
+        
         .calculate-btn i {
             margin-right: 8px;
             color: #2c3e50;
         }
-
+        
         .calculator-results {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
             margin-top: 30px;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
-
+        
         .result-header {
             text-align: center;
             margin-bottom: 25px;
         }
-
+        
         .result-header h3 {
             color: #ffd700;
             font-size: 24px;
@@ -366,44 +381,44 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
+        
         .result-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             margin-bottom: 15px;
             transition: transform 0.3s ease;
         }
-
+        
         .result-item:hover {
             transform: translateX(5px);
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
         }
-
+        
         .result-item:last-child {
             margin-bottom: 0;
         }
-
+        
         .result-label {
             color: #fff;
             font-weight: 500;
             font-size: 16px;
         }
-
+        
         .result-label i {
             margin-right: 8px;
             color: #ffd700;
         }
-
+        
         .result-value {
             font-weight: 700;
             color: #ffd700;
             font-size: 20px;
         }
-
+        
         .error-message {
             background: rgba(231, 76, 60, 0.9);
             color: #fff;
@@ -414,32 +429,28 @@
             font-weight: 500;
             box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
         }
-
         /* Responsive adjustments */
+        
         @media screen and (max-width: 768px) {
             .loan-emi-calculator-container {
                 padding: 20px;
             }
-
             .calculator-form {
                 padding: 20px;
             }
-
             .form-group {
                 padding: 15px;
             }
-
             .tenure-inputs {
                 flex-direction: column;
                 align-items: stretch;
             }
-
             .tenure-type {
                 justify-content: center;
             }
         }
-
         /* BMI Calculator Styles */
+        
         .bmi-calculator-container {
             max-width: 600px;
             margin: 2rem auto;
@@ -449,12 +460,12 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             color: white;
         }
-
+        
         .bmi-calculator-container .calculator-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-
+        
         .bmi-calculator-container .calculator-form {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
@@ -462,17 +473,17 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-
+        
         .bmi-calculator-container .form-group {
             margin-bottom: 1.5rem;
         }
-
+        
         .bmi-calculator-container label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
         }
-
+        
         .bmi-calculator-container input {
             width: 100%;
             padding: 0.8rem;
@@ -483,17 +494,17 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-
+        
         .bmi-calculator-container input:focus {
             outline: none;
             border-color: rgba(255, 255, 255, 0.5);
             background: rgba(255, 255, 255, 0.2);
         }
-
+        
         .bmi-calculator-container input::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-
+        
         .bmi-calculator-container .calculate-btn {
             width: 100%;
             padding: 1rem;
@@ -506,12 +517,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .bmi-calculator-container .calculate-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         .bmi-calculator-container .calculator-results {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -521,7 +532,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-
+        
         .bmi-calculator-container .result-value {
             font-size: 2.5rem;
             font-weight: 700;
@@ -529,7 +540,7 @@
             color: white;
             text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
         }
-
+        
         .bmi-calculator-container .result-category {
             font-size: 1.5rem;
             padding: 0.7rem 1.5rem;
@@ -540,7 +551,7 @@
             font-weight: 700;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-
+        
         .bmi-calculator-container p {
             color: white;
             line-height: 1.8;
@@ -552,48 +563,60 @@
             border-radius: 8px;
             font-weight: 500;
         }
-
+        
         .bmi-categories {
             margin-top: 1.5rem;
             background: rgba(255, 255, 255, 0.15);
             padding: 1.2rem;
             border-radius: 8px;
         }
-
+        
         .bmi-categories strong {
             font-size: 1.3rem;
             display: block;
             margin-bottom: 0.8rem;
             color: #ffd700;
         }
-
+        
         .category-item {
             display: flex;
             justify-content: space-between;
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .category-item:last-child {
             border-bottom: none;
         }
-
+        
         .category-name {
             font-weight: 600;
             font-size: 1.1rem;
         }
-
+        
         .category-range {
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.1rem;
         }
-
         /* BMI Category Colors */
-        .category-underweight { background-color: #2196F3; }
-        .category-normal { background-color: #4CAF50; }
-        .category-overweight { background-color: #FFC107; color: #333; }
-        .category-obese { background-color: #F44336; }
-
+        
+        .category-underweight {
+            background-color: #2196F3;
+        }
+        
+        .category-normal {
+            background-color: #4CAF50;
+        }
+        
+        .category-overweight {
+            background-color: #FFC107;
+            color: #333;
+        }
+        
+        .category-obese {
+            background-color: #F44336;
+        }
+        
         .bmi-calculator-container .error {
             background: rgba(231, 76, 60, 0.8);
             color: white;
@@ -602,8 +625,8 @@
             font-weight: 500;
             margin-top: 0.5rem;
         }
-
         /* Word Count Tool Styles */
+        
         .word-count-container {
             max-width: 800px;
             margin: 2rem auto;
@@ -613,7 +636,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             color: white;
         }
-
+        
         .word-count-container textarea {
             width: 100%;
             padding: 1rem;
@@ -625,18 +648,18 @@
             resize: vertical;
             min-height: 200px;
         }
-
+        
         .word-count-container textarea:focus {
             outline: none;
             border-color: rgba(255, 255, 255, 0.5);
             background: rgba(255, 255, 255, 0.15);
         }
-
+        
         .word-count-container textarea::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-
         /* PDF Merger Tool Styles */
+        
         .pdf-merger-container {
             max-width: 800px;
             margin: 2rem auto;
@@ -646,7 +669,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             color: white;
         }
-
+        
         .file-input {
             width: 100%;
             padding: 2rem;
@@ -659,12 +682,12 @@
             text-align: center;
             font-size: 1.1rem;
         }
-
+        
         .file-input:hover {
             border-color: rgba(255, 255, 255, 0.5);
             background: rgba(255, 255, 255, 0.15);
         }
-
+        
         .file-list {
             margin-top: 1rem;
             padding: 1rem;
@@ -674,7 +697,7 @@
             max-height: 300px;
             overflow-y: auto;
         }
-
+        
         .file-item {
             display: flex;
             align-items: center;
@@ -685,31 +708,31 @@
             margin-bottom: 0.5rem;
             transition: all 0.3s ease;
         }
-
+        
         .file-item:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: translateX(5px);
         }
-
+        
         .file-item:last-child {
             margin-bottom: 0;
         }
-
+        
         .file-item .file-info {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
+        
         .file-item .file-name {
             font-weight: 500;
         }
-
+        
         .file-item .file-size {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
-
+        
         .file-item .remove-file {
             color: #e74c3c;
             cursor: pointer;
@@ -717,17 +740,17 @@
             border-radius: 4px;
             transition: all 0.3s ease;
         }
-
+        
         .file-item .remove-file:hover {
             background: rgba(231, 76, 60, 0.2);
         }
-
+        
         .file-actions {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-
+        
         .action-btn {
             padding: 0.8rem 1.5rem;
             border: none;
@@ -740,39 +763,39 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .clear-btn {
             background: rgba(231, 76, 60, 0.2);
             color: #e74c3c;
         }
-
+        
         .clear-btn:hover {
             background: rgba(231, 76, 60, 0.3);
         }
-
+        
         .progress-container {
             margin-top: 2rem;
         }
-
+        
         .progress {
             height: 20px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
         }
-
+        
         .progress-bar {
             background: #2ecc71;
             transition: width 0.3s ease;
         }
-
+        
         .progress-text {
             text-align: center;
             margin-top: 0.5rem;
             color: rgba(255, 255, 255, 0.8);
         }
-
         /* Math Solution Tool Styles */
+        
         .math-solution-container {
             max-width: 800px;
             margin: 2rem auto;
@@ -782,17 +805,17 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             color: white;
         }
-
+        
         .math-upload-section {
             margin-bottom: 1.5rem;
         }
-
+        
         .upload-methods {
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-
+        
         .upload-method {
             flex: 1;
             display: flex;
@@ -804,28 +827,28 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .upload-method:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-5px);
         }
-
+        
         .upload-method.active {
             background: rgba(255, 255, 255, 0.35);
             border: 2px solid rgba(255, 255, 255, 0.7);
         }
-
+        
         .upload-method i {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: white;
         }
-
+        
         .upload-method span {
             font-weight: 600;
             color: white;
         }
-
+        
         .upload-area {
             position: relative;
             width: 100%;
@@ -839,12 +862,12 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .upload-area:hover {
             background: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.7);
         }
-
+        
         .upload-placeholder {
             display: flex;
             flex-direction: column;
@@ -853,31 +876,31 @@
             padding: 2rem;
             cursor: pointer;
         }
-
+        
         .upload-placeholder i {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: white;
         }
-
+        
         .upload-placeholder p {
             color: white;
             font-size: 1.2rem;
             font-weight: 500;
         }
-
+        
         .camera-container {
             position: relative;
             width: 100%;
             height: 100%;
         }
-
+        
         .camera-preview {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .capture-button {
             position: absolute;
             bottom: 1.5rem;
@@ -897,24 +920,24 @@
             font-size: 1.5rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-
+        
         .capture-button:hover {
             background: #7b1fa2;
             transform: translateX(-50%) scale(1.1);
         }
-
+        
         .image-preview {
             position: relative;
             width: 100%;
             height: 100%;
         }
-
+        
         #preview-img {
             width: 100%;
             max-height: 350px;
             object-fit: contain;
         }
-
+        
         .remove-button {
             position: absolute;
             top: 10px;
@@ -931,38 +954,42 @@
             transition: all 0.3s ease;
             color: white;
         }
-
+        
         .remove-button:hover {
             background: rgba(231, 76, 60, 1);
         }
-
+        
         .processing-message {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 2rem;
         }
-
+        
         .spinner {
             font-size: 2rem;
             color: white;
             margin-bottom: 1rem;
         }
-
+        
         .solution-content {
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
         }
-
-        .original-problem, .step-by-step-solution, .final-answer {
+        
+        .original-problem,
+        .step-by-step-solution,
+        .final-answer {
             margin-bottom: 2rem;
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 8px;
         }
-
-        .original-problem h4, .step-by-step-solution h4, .final-answer h4 {
+        
+        .original-problem h4,
+        .step-by-step-solution h4,
+        .final-answer h4 {
             color: white;
             font-size: 1.3rem;
             margin-bottom: 1rem;
@@ -970,7 +997,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             font-weight: 600;
         }
-
+        
         .math-text {
             font-family: 'Courier New', monospace;
             font-size: 1.2rem;
@@ -981,11 +1008,11 @@
             color: white;
             font-weight: 500;
         }
-
+        
         #solution-steps {
             counter-reset: step;
         }
-
+        
         .solution-step {
             position: relative;
             padding: 1.2rem 1.2rem 1.2rem 3rem;
@@ -995,11 +1022,11 @@
             transition: all 0.3s ease;
             color: white;
         }
-
+        
         .solution-step:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-
+        
         .solution-step:before {
             counter-increment: step;
             content: "Step " counter(step);
@@ -1013,14 +1040,14 @@
             color: white;
             font-weight: 600;
         }
-
+        
         .solution-step p {
             margin-bottom: 0.7rem;
             font-size: 1.1rem;
             line-height: 1.6;
             color: white;
         }
-
+        
         .final-answer .math-text {
             font-size: 1.4rem;
             font-weight: bold;
@@ -1029,7 +1056,7 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 1.5rem;
         }
-
+        
         .processing-message p {
             color: white;
             font-size: 1.2rem;
@@ -1037,6 +1064,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Section -->
     <div class="navbar navbar-fixed-top custom-navbar" role="navigation">
@@ -1150,23 +1178,23 @@
                     <div class="calculator-header">
                         <h2><i class="fas fa-weight"></i> BMI Calculator</h2>
                     </div>
-                    
+
                     <div class="calculator-form">
                         <div class="form-group">
                             <label for="height"><i class="fas fa-ruler-vertical"></i> Height (cm)</label>
                             <input type="number" id="height" name="height" placeholder="Enter your height" min="1" step="0.1">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="weight"><i class="fas fa-weight"></i> Weight (kg)</label>
                             <input type="number" id="weight" name="weight" placeholder="Enter your weight" min="1" step="0.1">
                         </div>
-                        
+
                         <button onclick="calculateBMI()" class="calculate-btn">
                             <i class="fas fa-calculator"></i> Calculate BMI
                         </button>
                     </div>
-                    
+
                     <div id="result" class="calculator-results" style="display: none;">
                         <!-- Results will be displayed here -->
                     </div>
@@ -1182,18 +1210,18 @@
                     <div class="calculator-header">
                         <h2><i class="fas fa-calculator"></i> Loan EMI Calculator</h2>
                     </div>
-                    
+
                     <div class="calculator-form">
                         <div class="form-group">
                             <label for="loan_amount"><i class="fas fa-rupee-sign"></i> Loan Amount (Rs.)</label>
                             <input type="number" id="loan_amount" name="loan_amount" placeholder="Enter loan amount" min="1000" value="100000">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="interest_rate"><i class="fas fa-percentage"></i> Interest Rate (% per annum)</label>
                             <input type="number" id="interest_rate" name="interest_rate" placeholder="Enter interest rate" min="1" max="50" step="0.01" value="10">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="loan_tenure"><i class="fas fa-clock"></i> Loan Tenure</label>
                             <div class="tenure-inputs">
@@ -1208,33 +1236,33 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button id="calculate_emi" class="calculate-btn">
                             <i class="fas fa-calculator"></i> Calculate EMI
                         </button>
                     </div>
-                    
+
                     <div class="calculator-results" style="display: none;">
                         <div class="result-header">
                             <h3>Loan Summary</h3>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-money-bill-wave"></i> Monthly EMI</span>
                             <span class="result-value" id="monthly_emi">₹ 0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-coins"></i> Total Interest Payable</span>
                             <span class="result-value" id="total_interest">₹ 0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-hand-holding-usd"></i> Total Amount Payable</span>
                             <span class="result-value" id="total_payment">₹ 0</span>
                         </div>
                     </div>
-                    
+
                     <div id="calculation_error" class="error-message" style="display: none;">
                         Please check your inputs and try again.
                     </div>
@@ -1250,43 +1278,43 @@
                     <div class="calculator-header">
                         <h2><i class="fas fa-calculator"></i> Word Count Tool</h2>
                     </div>
-                    
+
                     <div class="calculator-form">
                         <div class="form-group">
                             <label for="text_input"><i class="fas fa-font"></i> Enter Your Text</label>
                             <textarea id="text_input" name="text_input" rows="10" placeholder="Paste or type your text here..."></textarea>
                         </div>
-                        
+
                         <button onclick="countWords()" class="calculate-btn">
                             <i class="fas fa-calculator"></i> Count Words
                         </button>
                     </div>
-                    
+
                     <div class="calculator-results" style="display: none;">
                         <div class="result-header">
                             <h3>Text Statistics</h3>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-font"></i> Words</span>
                             <span class="result-value" id="word_count">0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-keyboard"></i> Characters (with spaces)</span>
                             <span class="result-value" id="char_count">0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-keyboard"></i> Characters (without spaces)</span>
                             <span class="result-value" id="char_no_space_count">0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-paragraph"></i> Paragraphs</span>
                             <span class="result-value" id="paragraph_count">0</span>
                         </div>
-                        
+
                         <div class="result-item">
                             <span class="result-label"><i class="fas fa-sentence"></i> Sentences</span>
                             <span class="result-value" id="sentence_count">0</span>
@@ -1304,14 +1332,14 @@
                     <div class="calculator-header">
                         <h2><i class="fas fa-file-pdf"></i> PDF Merger Tool</h2>
                     </div>
-                    
+
                     <div class="calculator-form">
                         <div class="form-group">
                             <label for="pdf_files"><i class="fas fa-file-upload"></i> Select PDF Files</label>
                             <input type="file" id="pdf_files" name="pdf_files" multiple accept=".pdf" class="file-input">
                             <div id="file-list" class="file-list"></div>
                         </div>
-                        
+
                         <div class="file-actions">
                             <button onclick="clearFiles()" class="action-btn clear-btn">
                                 <i class="fas fa-trash"></i> Clear All
@@ -1321,14 +1349,14 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div id="merge-progress" class="progress-container" style="display: none;">
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 0%"></div>
                         </div>
                         <p class="progress-text">Merging PDFs...</p>
                     </div>
-                    
+
                     <div id="merge-result" class="calculator-results" style="display: none;">
                         <div class="result-header">
                             <h3>Merge Complete</h3>
@@ -1360,7 +1388,7 @@
                     <div class="calculator-header">
                         <h2><i class="fas fa-square-root-alt"></i> Math Solution Tool</h2>
                     </div>
-                    
+
                     <div class="calculator-form">
                         <div class="math-upload-section">
                             <div class="upload-methods">
@@ -1373,7 +1401,7 @@
                                     <span>Take Photo</span>
                                 </div>
                             </div>
-                            
+
                             <div class="upload-area" id="upload-area">
                                 <input type="file" id="math-image" accept="image/*" style="display: none;">
                                 <div class="upload-placeholder" id="upload-placeholder">
@@ -1394,35 +1422,35 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button id="solve-math" class="calculate-btn" disabled>
                             <i class="fas fa-magic"></i> Solve Problem
                         </button>
                     </div>
-                    
+
                     <div id="math-solution-result" class="calculator-results" style="display: none;">
                         <div class="result-header">
                             <h3>Problem Solution</h3>
                         </div>
-                        
+
                         <div class="processing-message" id="processing-message">
                             <div class="spinner">
                                 <i class="fas fa-spinner fa-spin"></i>
                             </div>
                             <p>Processing your math problem...</p>
                         </div>
-                        
+
                         <div class="solution-content" id="solution-content" style="display: none;">
                             <div class="original-problem">
                                 <h4>Original Problem</h4>
                                 <div id="detected-problem" class="math-text"></div>
                             </div>
-                            
+
                             <div class="step-by-step-solution">
                                 <h4>Step-by-Step Solution</h4>
                                 <div id="solution-steps"></div>
                             </div>
-                            
+
                             <div class="final-answer">
                                 <h4>Final Answer</h4>
                                 <div id="final-answer" class="math-text"></div>
@@ -1442,6 +1470,12 @@
     <!-- PDF-LIB Library -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script>
+        // Check if PDF-LIB is loaded
+        if (typeof PDFLib === 'undefined') {
+            console.error('PDF-LIB library failed to load. Please check your internet connection and try again.');
+            alert('PDF-LIB library failed to load. Please check your internet connection and try again.');
+        }
+
         // Tool switching functionality
         function showTool(toolId) {
             document.getElementById('tools-list').style.display = 'none';
@@ -1474,7 +1508,7 @@
             const interestRate = parseFloat(document.getElementById('interest_rate').value);
             const loanTenure = parseInt(document.getElementById('loan_tenure').value);
             const tenureType = document.querySelector('input[name="tenure_type"]:checked').value;
-            
+
             // Input validation
             if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTenure) ||
                 loanAmount <= 0 || interestRate <= 0 || loanTenure <= 0) {
@@ -1490,8 +1524,8 @@
             // Calculate EMI
             let emi = 0;
             if (monthlyInterestRate > 0 && loanTenureMonths > 0) {
-                emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) / 
-                      (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+                emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) /
+                    (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
             }
 
             const totalPayment = emi * loanTenureMonths;
@@ -1616,7 +1650,7 @@
         function updateFileList() {
             const fileList = document.getElementById('file-list');
             fileList.innerHTML = '';
-            
+
             selectedFiles.forEach((file, index) => {
                 const fileSize = formatFileSize(file.size);
                 const fileItem = document.createElement('div');
@@ -1658,7 +1692,10 @@
         }
 
         async function mergePDFs() {
-            if (selectedFiles.length < 2) return;
+            if (selectedFiles.length < 2) {
+                alert('Please select at least 2 PDF files to merge.');
+                return;
+            }
 
             const progressContainer = document.getElementById('merge-progress');
             const progressBar = progressContainer.querySelector('.progress-bar');
@@ -1672,70 +1709,89 @@
             progressText.textContent = 'Loading PDFs...';
 
             try {
+                // Verify PDF-LIB is loaded
+                if (typeof PDFLib === 'undefined') {
+                    throw new Error('PDF-LIB library not loaded. Please refresh the page and try again.');
+                }
+
                 // Create a new PDF document using the PDF-LIB library
-                const { PDFDocument } = PDFLib;
+                const {
+                    PDFDocument
+                } = PDFLib;
                 const mergedPdf = await PDFDocument.create();
-                
+
                 let totalPages = 0;
                 let processedPages = 0;
 
                 // First pass - count total pages
                 for (let i = 0; i < selectedFiles.length; i++) {
                     const file = selectedFiles[i];
-                    const arrayBuffer = await file.arrayBuffer();
-                    const pdf = await PDFDocument.load(arrayBuffer);
-                    totalPages += pdf.getPageCount();
+                    progressText.textContent = `Analyzing ${file.name}...`;
+
+                    try {
+                        const arrayBuffer = await file.arrayBuffer();
+                        const pdf = await PDFDocument.load(arrayBuffer);
+                        totalPages += pdf.getPageCount();
+                    } catch (error) {
+                        throw new Error(`Error processing file ${file.name}: ${error.message}`);
+                    }
                 }
 
                 // Second pass - merge PDFs
                 for (let i = 0; i < selectedFiles.length; i++) {
                     const file = selectedFiles[i];
                     progressText.textContent = `Processing ${file.name}...`;
-                    
-                    // Read the PDF file
-                    const arrayBuffer = await file.arrayBuffer();
-                    const pdf = await PDFDocument.load(arrayBuffer);
-                    
-                    // Copy all pages from the current PDF
-                    const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-                    pages.forEach(page => mergedPdf.addPage(page));
 
-                    // Update progress
-                    processedPages += pdf.getPageCount();
-                    const progress = Math.min(Math.round((processedPages / totalPages) * 100), 100);
-                    progressBar.style.width = `${progress}%`;
+                    try {
+                        // Read the PDF file
+                        const arrayBuffer = await file.arrayBuffer();
+                        const pdf = await PDFDocument.load(arrayBuffer);
+
+                        // Copy all pages from the current PDF
+                        const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                        pages.forEach(page => mergedPdf.addPage(page));
+
+                        // Update progress
+                        processedPages += pdf.getPageCount();
+                        const progress = Math.min(Math.round((processedPages / totalPages) * 100), 100);
+                        progressBar.style.width = `${progress}%`;
+                    } catch (error) {
+                        throw new Error(`Error merging file ${file.name}: ${error.message}`);
+                    }
                 }
 
                 // Save the merged PDF
                 progressText.textContent = 'Saving merged PDF...';
                 const mergedPdfBytes = await mergedPdf.save();
-                
+
                 // Create a blob from the merged PDF bytes
-                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+                const blob = new Blob([mergedPdfBytes], {
+                    type: 'application/pdf'
+                });
                 const url = URL.createObjectURL(blob);
-                
+
                 // Update the download link
                 downloadLink.href = url;
                 downloadLink.download = 'merged.pdf';
-                
+
                 // Hide progress and show result
                 progressContainer.style.display = 'none';
                 mergeResult.style.display = 'block';
-                
+
                 // Add click event to open PDF in new tab
                 downloadLink.onclick = function(e) {
-                    // This allows the download to happen and also opens in a new tab
                     setTimeout(() => {
                         window.open(url, '_blank');
                     }, 100);
                 };
-                
+
             } catch (error) {
                 console.error('Error merging PDFs:', error);
-                progressText.textContent = 'Error merging PDFs. Please try again.';
+                progressText.textContent = `Error: ${error.message}`;
                 progressBar.style.width = '0%';
                 setTimeout(() => {
                     progressContainer.style.display = 'none';
+                    alert(error.message);
                 }, 2000);
             }
         }
@@ -1753,10 +1809,10 @@
             const captureButton = document.getElementById('capture-button');
             const solveButton = document.getElementById('solve-math');
             const uploadArea = document.getElementById('upload-area');
-            
+
             let stream = null;
             let capturedImage = null;
-            
+
             // Method selection
             uploadFileMethod.addEventListener('click', function() {
                 uploadFileMethod.classList.add('active');
@@ -1770,13 +1826,13 @@
                     imagePreview.style.display = 'none';
                 }
             });
-            
+
             takePhotoMethod.addEventListener('click', async function() {
                 try {
                     uploadFileMethod.classList.remove('active');
                     takePhotoMethod.classList.add('active');
                     uploadPlaceholder.style.display = 'none';
-                    
+
                     if (!capturedImage) {
                         cameraContainer.style.display = 'block';
                         imagePreview.style.display = 'none';
@@ -1791,26 +1847,26 @@
                     uploadFileMethod.click();
                 }
             });
-            
+
             // File upload via click
             uploadPlaceholder.addEventListener('click', function() {
                 mathImage.click();
             });
-            
+
             // File upload via drag & drop
             uploadArea.addEventListener('dragover', function(e) {
                 e.preventDefault();
                 uploadArea.classList.add('dragover');
             });
-            
+
             uploadArea.addEventListener('dragleave', function() {
                 uploadArea.classList.remove('dragover');
             });
-            
+
             uploadArea.addEventListener('drop', function(e) {
                 e.preventDefault();
                 uploadArea.classList.remove('dragover');
-                
+
                 if (e.dataTransfer.files.length) {
                     const file = e.dataTransfer.files[0];
                     if (file.type.startsWith('image/')) {
@@ -1820,36 +1876,38 @@
                     }
                 }
             });
-            
+
             // File input change
             mathImage.addEventListener('change', function(e) {
                 if (e.target.files.length) {
                     handleImageFile(e.target.files[0]);
                 }
             });
-            
+
             // Remove image
             removeImage.addEventListener('click', function() {
                 previewImg.src = '';
                 mathImage.value = '';
                 capturedImage = null;
                 imagePreview.style.display = 'none';
-                
+
                 if (uploadFileMethod.classList.contains('active')) {
                     uploadPlaceholder.style.display = 'flex';
                 } else {
                     startCamera();
                     cameraContainer.style.display = 'block';
                 }
-                
+
                 solveButton.disabled = true;
             });
-            
+
             // Start camera
             async function startCamera() {
                 try {
                     stream = await navigator.mediaDevices.getUserMedia({
-                        video: { facingMode: 'environment' }
+                        video: {
+                            facingMode: 'environment'
+                        }
                     });
                     const videoElement = document.getElementById('camera-preview');
                     videoElement.srcObject = stream;
@@ -1858,7 +1916,7 @@
                     throw error;
                 }
             }
-            
+
             // Stop camera
             function stopCamera() {
                 if (stream) {
@@ -1866,17 +1924,17 @@
                     stream = null;
                 }
             }
-            
+
             // Capture photo
             captureButton.addEventListener('click', function() {
                 const videoElement = document.getElementById('camera-preview');
                 const canvas = document.createElement('canvas');
                 canvas.width = videoElement.videoWidth;
                 canvas.height = videoElement.videoHeight;
-                
+
                 const context = canvas.getContext('2d');
                 context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-                
+
                 // Convert to blob
                 canvas.toBlob(function(blob) {
                     capturedImage = blob;
@@ -1888,7 +1946,7 @@
                     stopCamera();
                 }, 'image/jpeg');
             });
-            
+
             // Handle image file
             function handleImageFile(file) {
                 capturedImage = file;
@@ -1898,27 +1956,27 @@
                 imagePreview.style.display = 'block';
                 solveButton.disabled = false;
             }
-            
+
             // Solve math problem
             solveButton.addEventListener('click', function() {
                 if (!capturedImage) return;
-                
+
                 const mathSolutionResult = document.getElementById('math-solution-result');
                 const processingMessage = document.getElementById('processing-message');
                 const solutionContent = document.getElementById('solution-content');
-                
+
                 mathSolutionResult.style.display = 'block';
                 processingMessage.style.display = 'flex';
                 solutionContent.style.display = 'none';
-                
+
                 // Simulate processing (in a real app, this would be an API call)
                 setTimeout(function() {
                     processingMessage.style.display = 'none';
                     solutionContent.style.display = 'block';
-                    
+
                     // Example solution (will be replaced with actual API response)
                     document.getElementById('detected-problem').textContent = "Solve: 2x² + 5x - 3 = 0";
-                    
+
                     const solutionSteps = document.getElementById('solution-steps');
                     solutionSteps.innerHTML = `
                         <div class="solution-step">
@@ -1940,15 +1998,15 @@
                             <p>x₂ = (-5 - 7) / 4 = -12 / 4 = -3</p>
                         </div>
                     `;
-                    
+
                     document.getElementById('final-answer').textContent = "x = 0.5 or x = -3";
-                    
+
                 }, 2000);
             });
-            
+
             // Initialize with file upload selected
             uploadFileMethod.click();
-            
+
             // Clean up on page change
             window.addEventListener('beforeunload', function() {
                 if (stream) {
@@ -1958,4 +2016,5 @@
         });
     </script>
 </body>
-</html> 
+
+</html>
