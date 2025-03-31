@@ -1,0 +1,199 @@
+/**
+ * Loan EMI Calculator CSS
+ */
+
+/* Container styling */
+.loan-emi-calculator-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* Header styling */
+.calculator-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.calculator-header h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 0;
+}
+
+.calculator-header h2 i {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+/* Form styling */
+.calculator-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input[type="number"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+/* Tenure input styling */
+.tenure-inputs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tenure-inputs input[type="number"] {
+    flex: 1;
+    margin-right: 15px;
+    min-width: 100px;
+}
+
+.tenure-type {
+    display: flex;
+    align-items: center;
+}
+
+.tenure-radio {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.tenure-radio input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Button styling */
+.calculate-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calculate-btn:hover {
+    background-color: #2980b9;
+}
+
+.calculate-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.calculate-btn i {
+    margin-right: 8px;
+}
+
+/* Results section styling */
+.calculator-results {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-header h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 0;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    color: #555;
+    font-weight: 600;
+}
+
+.result-label i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+.result-value {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+/* Error message styling */
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    background-color: #fadbd8;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 480px) {
+    .tenure-inputs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .tenure-inputs input[type="number"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .tenure-type {
+        width: 100%;
+    }
+} 

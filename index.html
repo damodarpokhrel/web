@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTN8ZMKH5Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QTN8ZMKH5Y');
-</script>
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -25,8 +16,342 @@
 <link rel="stylesheet" href="css/templatemo-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2249869511054660"
-     crossorigin="anonymous"></script>
+<style>
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --text-light: #ecf0f1;
+        --text-dark: #2c3e50;
+        --bg-light: #f8f9fa;
+        --bg-dark: #2c3e50;
+        --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        --gradient-accent: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    }
+
+    /* Global Styles */
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    /* Navigation */
+    .navbar {
+        background: rgba(44, 62, 80, 0.95);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        min-height: 50px;
+        margin-bottom: 0;
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--text-light) !important;
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+
+    .navbar-nav > li > a {
+        color: var(--text-light) !important;
+        transition: all 0.3s ease;
+        padding: 15px 10px;
+        line-height: 20px;
+    }
+
+    .navbar-nav > li > a:hover {
+        color: var(--secondary-color) !important;
+    }
+
+    .navbar-toggle {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .navbar-toggle .icon-bar {
+        background-color: var(--text-light);
+    }
+
+    /* Add this to ensure navbar stays dark when scrolling */
+    .navbar.scrolled {
+        background: rgba(44, 62, 80, 0.98) !important;
+    }
+
+    /* Home Section */
+    .home-thumb {
+        padding: 120px 0 50px;
+    }
+
+    .section-title h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-btn {
+        background: var(--gradient-primary);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        color: var(--text-light);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .section-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        color: var(--text-light);
+    }
+
+    /* About Section */
+    .about-thumb {
+        padding: 50px 0;
+    }
+
+    .skill-thumb {
+        padding: 40px;
+        border-radius: 0;
+        height: 100%;
+    }
+
+    .progress {
+        height: 8px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar {
+        background: var(--secondary-color);
+        border-radius: 4px;
+    }
+
+    /* Add styles for skill text */
+    .skill-thumb strong {
+        color: #ffffff;
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .skill-thumb .color-white {
+        color: #ffffff !important;
+    }
+
+    .skill-thumb .section-title h1 {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+    /* Service Section */
+    .service-thumb {
+        padding: 40px;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .service-thumb:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .service-thumb i {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+    }
+
+    /* Experience & Education Sections */
+    .experience-thumb, .education-thumb {
+        padding: 50px 0;
+    }
+
+    .media-object {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+        font-size: 1.5rem;
+    }
+
+    /* Contact Section */
+    .contact-form {
+        padding: 40px;
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: var(--text-light);
+        padding: 12px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        background: rgba(255,255,255,0.2);
+        border-color: var(--secondary-color);
+        color: var(--text-light);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: rgba(255,255,255,0.7);
+    }
+
+    
+
+    .contact-info h3 {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+
+    .contact-info p {
+        color: var(--text-light);
+        margin-bottom: 15px;
+    }
+
+    .contact-info a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: var(--accent-color);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--bg-dark);
+        padding: 30px 0;
+    }
+
+    .footer-copyright {
+        color: var(--text-light);
+    }
+
+    .social-media a {
+        color: var(--text-light);
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+    }
+
+    .social-media a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .section-title h1 {
+            font-size: 2rem;
+        }
+        
+        .service-thumb {
+            margin-bottom: 30px;
+        }
+        
+        .contact-form, .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .media-object {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Background Images */
+    .background-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 300px;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Specific image sizes */
+    .home-img {
+        background-image: url('images/home-img.jpg');
+        height: 400px;
+    }
+
+    .about-img {
+        background-image: url('images/about-img.jpg');
+        height: 300px;
+    }
+
+    .experience-img {
+        background-image: url('images/experience-img.jpg');
+        height: 300px;
+    }
+
+ 
+
+    .contact-img {
+        background-image: url('images/contact-img.jpg');
+        height: 100%;
+        min-height: 100vh;
+    }
+
+    /* Responsive image adjustments */
+    @media (max-width: 768px) {
+        .background-image {
+            height: 250px;
+        }
+        .home-img {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .background-image {
+            height: 200px;
+        }
+        .home-img {
+            height: 250px;
+        }
+    }
+
+    /* Animations */
+    .wow {
+        visibility: hidden;
+        animation-duration: 0.6s;
+        animation-fill-mode: both;
+    }
+
+    .fadeInUp {
+        animation-name: fadeInUp;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -58,7 +383,7 @@
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="nepali-converter.html" class="smoothScroll">Nepali Date Converter</a></li>
+                    <li><a href="tools.html">Tools</a></li>
                     <li><a href="#about" class="smoothScroll">About Me</a></li>
                     <li><a href="#experience" class="smoothScroll">Experiences</a></li>
                     <li><a href="#quotes" class="smoothScroll">Testimonial</a></li>
@@ -352,7 +677,7 @@
                     <div class="contact-thumb">
                          <div class="wow fadeInUp contact-info" data-wow-delay="0.6s">
                               <h3 class="color-white">Visit my office</h3>
-                              <p>Department of Agriculture, <br>
+                              <p>Department of Agriculture
                                    Hariharbhawan, Lalitpur</p>
                          </div>
 
@@ -361,10 +686,6 @@
                               <p><i class="fa fa-phone"></i> 9852675354</p>
                               <p><i class="fa fa-envelope"></i> <a href="mailto:agrotecn@gmil.com">agrotecn@gmail.com</a></p>
                               <p><i class="fa fa-globe"></i> <a href="#">damodar-pokhrel.com.np</a></p>
-                              <br>
-                              <div class="cv-buttons">
-                                   <a href="Mycv\DAMODAR POKHREL cv.pdf" class="btn" target="_blank">View MY CV</a>
-                               </div>
                          </div>
 
                     </div>
@@ -421,118 +742,6 @@
         }
     });
 </script>
-
-<div class="cookie-consent">
-    <div class="cookie-consent-content">
-        <div class="cookie-text">
-            <p>We use cookies and similar technologies to help personalize content, tailor and measure ads, and provide a better experience. By clicking "Accept" you agree to this use. You can learn more about our cookie policy and change your preferences in Cookie Settings.</p>
-        </div>
-        <div class="cookie-buttons">
-            <button class="cookie-btn manage" onclick="showCookieSettings()">Manage options</button>
-            <button class="cookie-btn decline" onclick="declineCookies()">Do not consent</button>
-            <button class="cookie-btn accept" onclick="acceptCookies()">Accept</button>
-        </div>
-    </div>
-</div>
-
-<div class="modal-overlay"></div>
-<div class="cookie-settings">
-    <h3>Cookie Settings</h3>
-    <div class="cookie-option">
-        <label>
-            <input type="checkbox" id="essential" checked disabled>
-            Essential Cookies
-        </label>
-        <p>These cookies are necessary for the website to function and cannot be switched off.</p>
-    </div>
-    <div class="cookie-option">
-        <label>
-            <input type="checkbox" id="analytics">
-            Analytics Cookies
-        </label>
-        <p>These cookies help us understand how visitors interact with our website.</p>
-    </div>
-    <div class="cookie-option">
-        <label>
-            <input type="checkbox" id="marketing">
-            Marketing Cookies
-        </label>
-        <p>These cookies are used to track visitors across websites to display relevant advertisements.</p>
-    </div>
-    <div class="cookie-buttons" style="margin-top: 1.5rem;">
-        <button class="cookie-btn manage" onclick="saveCookieSettings()">Save Settings</button>
-    </div>
-</div>
-
-<script>
-    // Cookie consent functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('cookieConsent')) {
-            document.querySelector('.cookie-consent').classList.add('show');
-        }
-    });
-
-    function showCookieSettings() {
-        document.querySelector('.cookie-settings').classList.add('show');
-        document.querySelector('.modal-overlay').classList.add('show');
-    }
-
-    function acceptCookies() {
-        localStorage.setItem('cookieConsent', 'all');
-        document.querySelector('.cookie-consent').classList.remove('show');
-        // Enable all cookies and tracking
-        enableTracking();
-    }
-
-    function declineCookies() {
-        localStorage.setItem('cookieConsent', 'essential');
-        document.querySelector('.cookie-consent').classList.remove('show');
-        // Disable non-essential cookies and tracking
-        disableTracking();
-    }
-
-    function saveCookieSettings() {
-        const analytics = document.getElementById('analytics').checked;
-        const marketing = document.getElementById('marketing').checked;
-        
-        let consent = {
-            essential: true,
-            analytics: analytics,
-            marketing: marketing
-        };
-        
-        localStorage.setItem('cookieConsent', JSON.stringify(consent));
-        document.querySelector('.cookie-settings').classList.remove('show');
-        document.querySelector('.modal-overlay').classList.remove('show');
-        document.querySelector('.cookie-consent').classList.remove('show');
-        
-        // Update tracking based on settings
-        if (analytics || marketing) {
-            enableTracking();
-        } else {
-            disableTracking();
-        }
-    }
-
-    function enableTracking() {
-        // Enable Google Analytics
-        window['ga-disable-YOUR_GA_ID'] = false;
-        // Enable other tracking services as needed
-    }
-
-    function disableTracking() {
-        // Disable Google Analytics
-        window['ga-disable-YOUR_GA_ID'] = true;
-        // Disable other tracking services as needed
-    }
-
-    // Close modal when clicking overlay
-    document.querySelector('.modal-overlay').addEventListener('click', function() {
-        document.querySelector('.cookie-settings').classList.remove('show');
-        document.querySelector('.modal-overlay').classList.remove('show');
-    });
-</script>
-
 
 </body>
 </html>

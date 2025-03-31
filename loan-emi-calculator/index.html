@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan EMI Calculator Demo</title>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Loan EMI Calculator Demo</h1>
+            <p>This is a demonstration of the Loan EMI Calculator WordPress plugin.</p>
+        </header>
+        
+        <main>
+            <!-- Loan EMI Calculator -->
+            <div class="loan-emi-calculator-container">
+                <div class="calculator-header">
+                    <h2><i class="fas fa-calculator"></i> Loan EMI Calculator</h2>
+                </div>
+                
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="loan_amount"><i class="fas fa-rupee-sign"></i> Loan Amount (₹)</label>
+                        <input type="number" id="loan_amount" name="loan_amount" placeholder="Enter loan amount" min="1000" value="100000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest_rate"><i class="fas fa-percentage"></i> Interest Rate (% per annum)</label>
+                        <input type="number" id="interest_rate" name="interest_rate" placeholder="Enter interest rate" min="1" max="50" step="0.01" value="10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loan_tenure"><i class="fas fa-clock"></i> Loan Tenure</label>
+                        <div class="tenure-inputs">
+                            <input type="number" id="loan_tenure" name="loan_tenure" placeholder="Enter loan tenure" min="1" value="5">
+                            <div class="tenure-type">
+                                <label class="tenure-radio">
+                                    <input type="radio" name="tenure_type" value="years" checked> Years
+                                </label>
+                                <label class="tenure-radio">
+                                    <input type="radio" name="tenure_type" value="months"> Months
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button id="calculate_emi" class="calculate-btn"><i class="fas fa-calculator"></i> Calculate EMI</button>
+                    </div>
+                </div>
+                
+                <div class="calculator-results" style="display: none;">
+                    <div class="result-header">
+                        <h3>Loan Summary</h3>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label"><i class="fas fa-money-bill-wave"></i> Monthly EMI:</span>
+                        <span class="result-value" id="monthly_emi">₹ 0</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label"><i class="fas fa-coins"></i> Total Interest Payable:</span>
+                        <span class="result-value" id="total_interest">₹ 0</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label"><i class="fas fa-hand-holding-usd"></i> Total Amount Payable:</span>
+                        <span class="result-value" id="total_payment">₹ 0</span>
+                    </div>
+                </div>
+                
+                <div id="calculation_error" class="error-message" style="display: none;">
+                    Please check your inputs and try again.
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Loan EMI Calculator. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- Demo JavaScript (for standalone HTML file) -->
+    <script>
+        (function($) {
+            'use strict';
+            
+            // Initialize when document is ready
+            $(document).ready(function() {
+                
+                // Cache DOM elements
+                const $calculator = $('.loan-emi-calculator-container');
+                const $loanAmount = $('#loan_amount');
+                const $interestRate = $('#interest_rate');
+                const $loanTenure = $('#loan_tenure');
+                const $tenureType = $('input[name="tenure_type"]');
+                const $calculateBtn = $('#calculate_emi');
+                const $resultsSection = $('.calculator-results');
+                const $errorMessage = $('#calculation_error');
+                const $monthlyEmi = $('#monthly_emi');
+                const $totalInterest = $('#total_interest');
+                const $totalPayment = $('#total_payment');
+                
+                // Format currency function (Indian Rupee format)
+                function formatCurrency(amount) {
+                    // Convert to Indian format (2 decimal places, commas for thousands)
+                    const formatter = new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
+                        currency: 'INR',
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
+                    
+                    return formatter.format(amount);
+                }
+                
+                // Validate form inputs
+                function validateInputs() {
+                    const loanAmount = parseFloat($loanAmount.val());
+                    const interestRate = parseFloat($interestRate.val());
+                    const loanTenure = parseInt($loanTenure.val());
+                    
+                    // Check if inputs are valid numbers
+                    if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTenure)) {
+                        return false;
+                    }
+                    
+                    // Check if inputs are within reasonable ranges
+                    if (loanAmount <= 0 || interestRate <= 0 || interestRate > 100 || loanTenure <= 0) {
+                        return false;
+                    }
+                    
+                    return true;
+                }
+                
+                // Calculate EMI function
+                function calculateEMI(loanAmount, interestRate, loanTenure, tenureType) {
+                    // Convert tenure to months if in years
+                    const loanTenureMonths = (tenureType === 'years') ? loanTenure * 12 : loanTenure;
+                    
+                    // Calculate monthly interest rate
+                    const monthlyInterestRate = (interestRate / 12) / 100;
+                    
+                    // Calculate EMI using formula: EMI = [P × R × (1+R)^N] / [(1+R)^N – 1]
+                    let emi = 0;
+                    if (monthlyInterestRate > 0 && loanTenureMonths > 0) {
+                        emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) / 
+                               (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+                    }
+                    
+                    // Calculate total payment and interest
+                    const totalPayment = emi * loanTenureMonths;
+                    const totalInterest = totalPayment - loanAmount;
+                    
+                    return {
+                        emi: emi,
+                        totalInterest: totalInterest,
+                        totalPayment: totalPayment
+                    };
+                }
+                
+                // Handle calculate button click
+                $calculateBtn.on('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Hide any previous results or errors
+                    $resultsSection.hide();
+                    $errorMessage.hide();
+                    
+                    // Validate inputs
+                    if (!validateInputs()) {
+                        $errorMessage.show();
+                        return;
+                    }
+                    
+                    // Get form values
+                    const loanAmount = parseFloat($loanAmount.val());
+                    const interestRate = parseFloat($interestRate.val());
+                    const loanTenure = parseInt($loanTenure.val());
+                    const tenureType = $('input[name="tenure_type"]:checked').val();
+                    
+                    // Show loading state
+                    $calculateBtn.prop('disabled', true);
+                    $calculateBtn.html('<i class="fas fa-spinner fa-spin"></i> Calculating...');
+                    
+                    // Simulate AJAX delay (for demo purposes)
+                    setTimeout(function() {
+                        try {
+                            // Calculate EMI
+                            const result = calculateEMI(loanAmount, interestRate, loanTenure, tenureType);
+                            
+                            // Update results
+                            $monthlyEmi.text(formatCurrency(result.emi));
+                            $totalInterest.text(formatCurrency(result.totalInterest));
+                            $totalPayment.text(formatCurrency(result.totalPayment));
+                            
+                            // Show results section
+                            $resultsSection.fadeIn(300);
+                        } catch (error) {
+                            $errorMessage.show();
+                        }
+                        
+                        // Reset button state
+                        $calculateBtn.prop('disabled', false);
+                        $calculateBtn.html('<i class="fas fa-calculator"></i> Calculate EMI');
+                    }, 500);
+                });
+                
+                // Add input validation for better UX
+                $loanAmount.on('input', function() {
+                    const value = $(this).val();
+                    if (value < 0) {
+                        $(this).val(0);
+                    }
+                });
+                
+                $interestRate.on('input', function() {
+                    const value = $(this).val();
+                    if (value < 0) {
+                        $(this).val(0);
+                    } else if (value > 100) {
+                        $(this).val(100);
+                    }
+                });
+                
+                $loanTenure.on('input', function() {
+                    const value = $(this).val();
+                    if (value < 0) {
+                        $(this).val(0);
+                    } else if (value > 50 && $('input[name="tenure_type"]:checked').val() === 'years') {
+                        $(this).val(50);
+                    } else if (value > 600 && $('input[name="tenure_type"]:checked').val() === 'months') {
+                        $(this).val(600);
+                    }
+                });
+            });
+            
+        })(jQuery);
+    </script>
+    
+    <style>
+        /* Additional styling for demo page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</body>
+</html> 
