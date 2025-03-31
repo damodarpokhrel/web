@@ -1468,7 +1468,7 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <!-- PDF-LIB Library -->
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script>
         // Check if PDF-LIB is loaded
         if (typeof PDFLib === 'undefined') {
@@ -1640,12 +1640,110 @@
         // PDF Merger Functions
         let selectedFiles = [];
 
-        document.getElementById('pdf_files').addEventListener('change', function(e) {
-            const files = Array.from(e.target.files);
-            selectedFiles = [...selectedFiles, ...files];
-            updateFileList();
-            document.getElementById('merge_button').disabled = selectedFiles.length < 2;
-        });
+        function handleFileSelect(event) {
+            const files = Array.from(event.target.files).filter(file => file.type === 'application/pdf');
+            if (files.length === 0) {
+                alert('Please select PDF files only.');
+                return;
+            }
+
+            // Validate each file before adding
+            Promise.all(files.map(validatePDFFile))
+                .then(() => {
+                    selectedFiles = [...selectedFiles, ...files];
+                    updateFileList();
+                    document.getElementById('merge_button').disabled = selectedFiles.length < 2;
+                })
+                .catch(error => {
+                    alert(error.message);
+                });
+        }
+
+        async function mergePDFs() {
+            if (selectedFiles.length < 2) {
+                alert('Please select at least 2 PDF files to merge.');
+                return;
+            }
+
+            const progressContainer = document.getElementById('merge-progress');
+            const progressBar = progressContainer.querySelector('.progress-bar');
+            const progressText = progressContainer.querySelector('.progress-text');
+            const mergeResult = document.getElementById('merge-result');
+
+            try {
+                progressContainer.style.display = 'block';
+                mergeResult.style.display = 'none';
+                progressBar.style.width = '0%';
+                progressText.textContent = 'Loading PDFs...';
+
+                // Create a new PDF document
+                const mergedPdf = await PDFLib.PDFDocument.create();
+                
+                // Process each PDF file
+                for (let i = 0; i < selectedFiles.length; i++) {
+                    const file = selectedFiles[i];
+                    progressText.textContent = `Processing ${file.name}...`;
+                    
+                    try {
+                        // Convert file to ArrayBuffer
+                        const fileArrayBuffer = await new Promise((resolve, reject) => {
+                            const reader = new FileReader();
+                            reader.onload = () => resolve(reader.result);
+                            reader.onerror = reject;
+                            reader.readAsArrayBuffer(file);
+                        });
+
+                        // Load the PDF
+                        const pdf = await PDFLib.PDFDocument.load(fileArrayBuffer);
+                        
+                        // Copy all pages
+                        const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                        pages.forEach((page) => mergedPdf.addPage(page));
+
+                        // Update progress
+                        const progress = Math.round(((i + 1) / selectedFiles.length) * 100);
+                        progressBar.style.width = `${progress}%`;
+                    } catch (error) {
+                        console.error(`Error processing ${file.name}:`, error);
+                        throw new Error(`Failed to process ${file.name}. Please ensure it is a valid PDF file.`);
+                    }
+                }
+
+                // Save the merged PDF
+                progressText.textContent = 'Finalizing merged PDF...';
+                const mergedPdfBytes = await mergedPdf.save();
+                
+                // Create download link
+                const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+                const downloadUrl = URL.createObjectURL(blob);
+                const downloadLink = document.getElementById('download_link');
+                downloadLink.href = downloadUrl;
+                downloadLink.download = 'merged.pdf';
+
+                // Show success state
+                progressContainer.style.display = 'none';
+                mergeResult.style.display = 'block';
+
+            } catch (error) {
+                console.error('PDF merger error:', error);
+                progressText.textContent = error.message || 'Error merging PDFs. Please try again.';
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Add this helper function to validate PDF files
+        function validatePDFFile(file) {
+            return new Promise((resolve, reject) => {
+                if (file.type !== 'application/pdf') {
+                    reject(new Error('Invalid file type. Please select PDF files only.'));
+                    return;
+                }
+                resolve(true);
+            });
+        }
 
         function updateFileList() {
             const fileList = document.getElementById('file-list');
@@ -1691,110 +1789,32 @@
             document.getElementById('merge_button').disabled = selectedFiles.length < 2;
         }
 
-        async function mergePDFs() {
-            if (selectedFiles.length < 2) {
-                alert('Please select at least 2 PDF files to merge.');
-                return;
-            }
-
-            const progressContainer = document.getElementById('merge-progress');
-            const progressBar = progressContainer.querySelector('.progress-bar');
-            const progressText = progressContainer.querySelector('.progress-text');
-            const mergeResult = document.getElementById('merge-result');
-            const downloadLink = document.getElementById('download_link');
-
-            progressContainer.style.display = 'block';
-            mergeResult.style.display = 'none';
-            progressBar.style.width = '0%';
-            progressText.textContent = 'Loading PDFs...';
-
-            try {
-                // Verify PDF-LIB is loaded
-                if (typeof PDFLib === 'undefined') {
-                    throw new Error('PDF-LIB library not loaded. Please refresh the page and try again.');
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('pdf_files');
+            fileInput.addEventListener('change', handleFileSelect);
+            
+            // Add drag and drop support
+            const dropZone = document.querySelector('.file-input');
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+            
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                const files = Array.from(e.dataTransfer.files).filter(file => file.type === 'application/pdf');
+                if (files.length > 0) {
+                    selectedFiles = [...selectedFiles, ...files];
+                    updateFileList();
+                    document.getElementById('merge_button').disabled = selectedFiles.length < 2;
                 }
-
-                // Create a new PDF document using the PDF-LIB library
-                const {
-                    PDFDocument
-                } = PDFLib;
-                const mergedPdf = await PDFDocument.create();
-
-                let totalPages = 0;
-                let processedPages = 0;
-
-                // First pass - count total pages
-                for (let i = 0; i < selectedFiles.length; i++) {
-                    const file = selectedFiles[i];
-                    progressText.textContent = `Analyzing ${file.name}...`;
-
-                    try {
-                        const arrayBuffer = await file.arrayBuffer();
-                        const pdf = await PDFDocument.load(arrayBuffer);
-                        totalPages += pdf.getPageCount();
-                    } catch (error) {
-                        throw new Error(`Error processing file ${file.name}: ${error.message}`);
-                    }
-                }
-
-                // Second pass - merge PDFs
-                for (let i = 0; i < selectedFiles.length; i++) {
-                    const file = selectedFiles[i];
-                    progressText.textContent = `Processing ${file.name}...`;
-
-                    try {
-                        // Read the PDF file
-                        const arrayBuffer = await file.arrayBuffer();
-                        const pdf = await PDFDocument.load(arrayBuffer);
-
-                        // Copy all pages from the current PDF
-                        const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-                        pages.forEach(page => mergedPdf.addPage(page));
-
-                        // Update progress
-                        processedPages += pdf.getPageCount();
-                        const progress = Math.min(Math.round((processedPages / totalPages) * 100), 100);
-                        progressBar.style.width = `${progress}%`;
-                    } catch (error) {
-                        throw new Error(`Error merging file ${file.name}: ${error.message}`);
-                    }
-                }
-
-                // Save the merged PDF
-                progressText.textContent = 'Saving merged PDF...';
-                const mergedPdfBytes = await mergedPdf.save();
-
-                // Create a blob from the merged PDF bytes
-                const blob = new Blob([mergedPdfBytes], {
-                    type: 'application/pdf'
-                });
-                const url = URL.createObjectURL(blob);
-
-                // Update the download link
-                downloadLink.href = url;
-                downloadLink.download = 'merged.pdf';
-
-                // Hide progress and show result
-                progressContainer.style.display = 'none';
-                mergeResult.style.display = 'block';
-
-                // Add click event to open PDF in new tab
-                downloadLink.onclick = function(e) {
-                    setTimeout(() => {
-                        window.open(url, '_blank');
-                    }, 100);
-                };
-
-            } catch (error) {
-                console.error('Error merging PDFs:', error);
-                progressText.textContent = `Error: ${error.message}`;
-                progressBar.style.width = '0%';
-                setTimeout(() => {
-                    progressContainer.style.display = 'none';
-                    alert(error.message);
-                }, 2000);
-            }
-        }
+            });
+        });
 
         // Math Solution Tool
         document.addEventListener('DOMContentLoaded', function() {
