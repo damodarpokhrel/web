@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Hamro Patro</title>
+    <!-- Include the Hamro Patro Scraper library files -->
+    <script src="node_modules/hamro-patro-scraper/index.js"></script>
+    <script src="node_modules/hamro-patro-scraper/routes/date.js"></script>
+</head>
+
+<body>
+    <h1>Hamro Patro Test</h1>
+    <div id="result"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const resultDiv = document.getElementById('result');
+
+            try {
+                // Check if hamroPatro is available
+                if (typeof hamroPatro === 'undefined' || typeof hamroPatro.date === 'undefined') {
+                    resultDiv.innerHTML = '<p style="color: red;">Error: hamroPatro or hamroPatro.date is undefined</p>';
+                    return;
+                }
+
+                // Log the hamroPatro object to console
+                console.log('hamroPatro object:', hamroPatro);
+                console.log('hamroPatro.date object:', hamroPatro.date);
+
+                // Test current date
+                resultDiv.innerHTML += '<h2>Current Date Test</h2>';
+                try {
+                    const today = await hamroPatro.date.today();
+                    resultDiv.innerHTML += `<p>Current Nepali Date: ${JSON.stringify(today)}</p>`;
+                } catch (error) {
+                    resultDiv.innerHTML += `<p style="color: red;">Error getting today's date: ${error.message}</p>`;
+                }
+
+                // Test BS to AD conversion
+                resultDiv.innerHTML += '<h2>BS to AD Conversion Test</h2>';
+                try {
+                    const adDate = await hamroPatro.date.BSToAD('2080-01-01');
+                    resultDiv.innerHTML += `<p>2080-01-01 BS converts to: ${JSON.stringify(adDate)}</p>`;
+                } catch (error) {
+                    resultDiv.innerHTML += `<p style="color: red;">Error converting BS to AD: ${error.message}</p>`;
+                }
+
+                // Test AD to BS conversion
+                resultDiv.innerHTML += '<h2>AD to BS Conversion Test</h2>';
+                try {
+                    const bsDate = await hamroPatro.date.ADToBS('2023-04-14');
+                    resultDiv.innerHTML += `<p>2023-04-14 AD converts to: ${JSON.stringify(bsDate)}</p>`;
+                } catch (error) {
+                    resultDiv.innerHTML += `<p style="color: red;">Error converting AD to BS: ${error.message}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">General error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

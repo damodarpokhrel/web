@@ -1,16 +1,23 @@
-/* Global Styles */
+/* Modern CSS for Nepali Date Converter */
+
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #3498db;
+    --accent-color: #f39c12;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --text-light: #777777;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Add Nepali font support */
-@font-face {
-    font-family: 'Preeti';
-    src: url('https://fonts.gstatic.com/s/notosansdevanagari/v25/TuGOUUFzXI5FBtUq5a8bjKYTZjtRU6Zd3mz2.woff2') format('woff2');
-    unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -20,17 +27,22 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
     width: 100%;
     max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    padding: 0;
+    padding: 0 0 20px 0;
 }
+
+
+/* Header Styles */
 
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -38,12 +50,14 @@ body {
     text-align: center;
     padding: 30px 20px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
 }
 
 .header p {
@@ -63,26 +77,54 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Card Styles */
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/* Converter Grid */
+
 .converters-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 20px;
 }
 
 .converter {
     flex: 1;
     min-width: 300px;
-    padding: 30px;
-    border-radius: 0;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin: 0 10px 20px;
     transition: all 0.3s ease;
 }
 
-.converter:first-child {
-    background-color: #f8f9fa;
-    border-right: 1px solid #e9ecef;
-}
-
-.converter:last-child {
-    background-color: #f1f3f5;
+.converter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .converter h2 {
@@ -91,64 +133,48 @@ body {
     font-size: 1.8rem;
     border-bottom: 2px solid #6c5ce7;
     padding-bottom: 10px;
-    display: flex;
-    align-items: center;
+    text-align: center;
 }
 
-.converter h2::before {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-.converter:first-child h2::before {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2078/2078479.png');
-}
+/* Form Elements */
 
-.converter:last-child h2::before {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/3898/3898082.png');
-}
-
-/* Nepali font styling */
-.converter:first-child label,
-.converter:first-child select {
-    font-family: 'Noto Sans Devanagari', 'Preeti', 'Arial Unicode MS', sans-serif;
-    font-size: 1.05rem;
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    margin: 15px 0 5px;
+    margin-bottom: 8px;
     color: #495057;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-input[type="number"], select {
+.select-input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ced4da;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
-    margin-bottom: 10px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #f8f9fa;
 }
 
-input[type="number"]:focus, select:focus {
+.select-input:focus {
     border-color: #6c5ce7;
     outline: none;
     box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
 }
 
-button {
+
+/* Button Styles */
+
+.convert-btn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
     padding: 12px 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -158,44 +184,112 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
+.convert-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-button:active {
+.convert-btn:active {
     transform: translateY(0);
 }
 
-#nepaliToEnglishResult, #englishToNepaliResult {
+
+/* Result Display */
+
+.result {
     margin-top: 20px;
     padding: 15px;
-    background-color: #e9ecef;
-    border-radius: 5px;
+    background-color: rgba(108, 92, 231, 0.1);
+    border-radius: 8px;
     font-weight: 500;
     min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #495057;
+    text-align: center;
 }
 
-/* Responsive Design */
+.result:empty::before {
+    content: "Conversion result will appear here";
+    color: #aaa;
+    font-style: italic;
+}
+
+
+/* Info Section */
+
+.info-section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 0 30px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h2 {
+    color: #495057;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #6c5ce7;
+    padding-bottom: 8px;
+}
+
+.info-section p {
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+
+/* Responsive Styles */
+
 @media (max-width: 768px) {
     .converters-container {
         flex-direction: column;
     }
-    
-    .converter:first-child {
-        border-right: none;
-        border-bottom: 1px solid #e9ecef;
+    .header h1 {
+        font-size: 2rem;
+    }
+    .header-image {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        right: 15px;
+    }
+    .converter {
+        margin: 0 0 20px;
+    }
+    .info-section {
+        margin: 0 20px 20px;
     }
 }
 
+
+/* Special Styles for Nepali Text */
+
+[id^="bs"] option {
+    font-family: 'Poppins', sans-serif;
+}
+
+
 /* Animation */
+
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
@@ -208,4 +302,13 @@ button:active {
 
 .converter:last-child {
     animation-delay: 0.2s;
+}
+
+
+/* Add Nepali font support */
+
+@font-face {
+    font-family: 'Preeti';
+    src: url('https://fonts.gstatic.com/s/notosansdevanagari/v25/TuGOUUFzXI5FBtUq5a8bjKYTZjtRU6Zd3mz2.woff2') format('woff2');
+    unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
 }

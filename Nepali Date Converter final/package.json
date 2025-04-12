@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "hamro-patro-scraper": "^1.1.5",
     "nepali-date-converter": "^3.3.3"
   }
 }
